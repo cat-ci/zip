@@ -1,7 +1,13 @@
-├── .github
-│   └── workflows
-│       └── static.yml
-├── CNAME
-├── dictionary.txt
-├── files.html
-└── index.html
+├── images
+│   ├── chicken.png
+│   ├── images
+│   └── computer-frame.png
+├── sounds
+│   ├── fan.mp3
+├── README.md
+├── backups
+│   └── combined.dom
+├── index.html
+├── script.js
+└── style.css
+
