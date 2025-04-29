@@ -1,6 +1,7 @@
-├─ .github
-│  └─ workflows
-│     └─ static.yml
-├─ CNAME
-├─ files.html
-└─ index.html
+├── .github
+│   └── workflows
+│       └── static.yml
+├── CNAME
+├── dictionary.txt
+├── files.html
+└── index.html
