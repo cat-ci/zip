@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Browse – zip.catci</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+  <style>
+    :root {
+      --win95-bg: #c0c0c0;
+      --win95-light: #fff;
+      --win95-dark: #808080;
+      --win95-shadow: #000;
+      --win95-blue: #000080;
+      --win95-border: #808080;
+      --win95-highlight: #fcfcfc;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; padding: 0;
+      background: #008080;
+      font-family: 'MS Sans Serif', Arial, sans-serif;
+      display: flex; align-items: center; justify-content: center;
+      min-height: 100vh;
+    }
+    .folder-window {
+      width: 820px;
+      background: var(--win95-bg);
+      border: 2px solid var(--win95-border);
+      box-shadow: 2px 2px 0 var(--win95-shadow);
+      font-size: 14px;
+    }
+    .title-bar {
+      background: linear-gradient(to bottom,
+        var(--win95-blue) 0%, #3a6ea5 100%);
+      color: var(--win95-light);
+      padding: 3px 8px;
+      display: flex; align-items: center;
+      font-weight: bold; user-select: none;
+      border-bottom: 2px solid var(--win95-dark);
+    }
+    .title-bar .icon {
+      width: 18px; height: 16px;
+      margin-right: 8px;
+      background: linear-gradient(
+        135deg, var(--win95-yellow) 60%, #e0c000);
+      border: 1px solid var(--win95-border);
+      box-shadow: 1px 1px 0 var(--win95-shadow);
+      position: relative;
+    }
+    .title-bar .icon::before {
+      content: ''; position: absolute; top: 0; left: 0;
+      width: 100%; height: 5px;
+      background: var(--win95-highlight);
+      opacity: 0.5;
+    }
+    .title-bar .close {
+      margin-left: auto;
+      width: 18px; height: 16px;
+      background: var(--win95-bg);
+      border: 2px outset var(--win95-light);
+      color: var(--win95-shadow);
+      font-weight: bold; font-family: monospace;
+      text-align: center; line-height: 16px;
+      cursor: pointer; font-size: 14px;
+      box-shadow: 1px 1px 0 var(--win95-shadow);
+    }
+    .title-bar .close:active {
+      border: 2px inset var(--win95-dark);
+      background: var(--win95-dark);
+    }
+
+    .toolbar {
+      display: flex; align-items: center;
+      padding: 4px; background: var(--win95-light);
+      border-bottom: 2px inset var(--win95-light);
+    }
+    .toolbar button {
+      width: 24px; height: 24px; margin-right: 4px;
+      background: var(--win95-bg);
+      border: 2px outset var(--win95-light);
+      cursor: pointer;
+      display: flex; align-items: center;
+      justify-content: center; font-size: 14px;
+    }
+    .toolbar button:active {
+      border: 2px inset var(--win95-dark);
+    }
+    .toolbar input {
+      flex: 1; height: 24px;
+      border: 2px inset var(--win95-light);
+      padding: 0 4px; font-size: 13px;
+      background: var(--win95-bg);
+    }
+
+    .explorer {
+      display: flex; height: 400px;
+    }
+    .sidebar {
+      width: 250px;
+      border-right: 2px inset var(--win95-light);
+      overflow: auto; background: var(--win95-bg);
+    }
+    .content {
+      flex: 1; padding: 8px;
+      overflow: auto; background: var(--win95-bg);
+    }
+    .folder, .file {
+      padding: 2px 4px; margin: 2px 0;
+      cursor: pointer; display: flex;
+      align-items: center;
+    }
+    .folder:hover, .file:hover {
+      background: var(--win95-highlight);
+    }
+    .folder .icon, .file .icon {
+      width: 16px; text-align: center;
+      margin-right: 4px;
+    }
+    .tree-node > .children {
+      margin-left: 16px;
+    }
+    .children { display: none; }
+    .tree-open > .children { display: block; }
+
+    .preview-window {
+      width: 300px;
+      border: 2px solid var(--win95-border);
+      box-shadow: 2px 2px 0 var(--win95-shadow);
+      background: var(--win95-bg);
+      margin-left: 4px;
+      display: flex; flex-direction: column;
+      font-size: 13px;
+      position: absolute;
+      top: 25%; right: 5%;
+      transform: translate(-50%, -50%);
+      z-index: 1000;
+    }
+    .preview-window .title-bar {
+      padding: 2px 6px; font-size: 14px;
+      border-bottom: 2px solid var(--win95-dark);
+    }
+    .preview-content {
+      flex: 1;
+      background: var(--win95-light);
+      border: 2px inset var(--win95-light);
+      margin: 4px; padding: 4px;
+      overflow: auto;
+    }
+    .preview-content img,
+    .preview-content video {
+      max-width: 100%; max-height: 100%;
+    }
+    .preview-content audio {
+      width: 100%;
+    }
+    table {
+      border-collapse: collapse; width: 100%;
+    }
+    th, td {
+      border: 1px solid var(--win95-border);
+      padding: 2px 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="folder-window">
+    <div class="title-bar">
+      <span class="icon"></span>
+      <div>Browse</div>
+      <span class="close" title="Close">×</span>
+    </div>
+    <div class="toolbar">
+      <button id="back" title="Back">
+        <i class="fa-solid fa-arrow-left"></i>
+      </button>
+      <button id="forward" title="Forward">
+        <i class="fa-solid fa-arrow-right"></i>
+      </button>
+      <button id="up" title="Up">
+        <i class="fa-solid fa-arrow-up"></i>
+      </button>
+      <input id="address" type="text" placeholder="/"/>
+    </div>
+    <div class="explorer">
+      <div class="sidebar" id="tree"></div>
+      <div class="content" id="list"></div>
+      
+    </div>
+  </div>
+  <div class="preview-window">
+    <div class="title-bar">
+      <span class="icon"></span>
+      <div id="preview-title">Preview</div>
+      <span class="close">×</span>
+    </div>
+    <div class="preview-content" id="preview">
+      <em>No file selected</em>
+    </div>
+  </div>
+
+  <script>
+
+    async function loadTree() {
+      const txt = await fetch('/dictionary.txt').then(r => r.text());
+      const lines = txt.split('\n').filter(l => l.trim());
+      const root = { name:'', type:'folder', children:[] };
+      const stack = [root];
+      for (let line of lines) {
+        let depth = 0, i = 0;
+        while (line.startsWith('│   ', i) || line.startsWith('    ', i)) {
+          depth++; i += 4;
+        }
+        i += 4; 
+        const name = line.slice(i).trim();
+        const node = {
+          name,
+          type: name.includes('.') ? 'file' : 'folder',
+          children: []
+        };
+        stack[depth].children.push(node);
+        stack[depth+1] = node;
+      }
+      return root;
+    }
+
+    let fsRoot, currentPath = [];
+    let historyStack = [], histPos = -1;
+
+    function updateNavButtons() {
+      backBtn.disabled = histPos <= 0;
+      fwdBtn.disabled = histPos >= historyStack.length - 1;
+    }
+    function pushHistory(path) {
+      historyStack = historyStack.slice(0, histPos + 1);
+      historyStack.push(path.slice());
+      histPos = historyStack.length - 1;
+      updateNavButtons();
+    }
+
+    function renderTree(node, container, path=[]) {
+      node.children.forEach(child => {
+        const el = document.createElement('div');
+        el.classList.add(child.type, 'tree-node');
+        const ic = document.createElement('span');
+        ic.className = 'icon';
+        ic.innerHTML = child.type === 'folder'
+          ? '<i class="fa-solid fa-folder"></i>'
+          : '<i class="fa-regular fa-file"></i>';
+        el.append(ic, document.createTextNode(child.name));
+        const thisPath = path.concat(child.name);
+        el.addEventListener('click', e => {
+          e.stopPropagation();
+          if (child.type === 'folder') {
+            el.classList.toggle('tree-open');
+            navigateTo(thisPath);
+          } else {
+            previewFile(child, thisPath);
+          }
+        });
+        container.appendChild(el);
+        if (child.type === 'folder') {
+          const sub = document.createElement('div');
+          sub.className = 'children';
+          container.appendChild(sub);
+          renderTree(child, sub, thisPath);
+        }
+      });
+    }
+
+    function renderList(node) {
+      listPane.innerHTML = '';
+      node.children.forEach(child => {
+        const el = document.createElement('div');
+        el.classList.add(child.type);
+        const ic = document.createElement('span');
+        ic.className = 'icon';
+        ic.innerHTML = child.type==='folder'
+          ? '<i class="fa-solid fa-folder"></i>'
+          : '<i class="fa-regular fa-file"></i>';
+        el.append(ic, document.createTextNode(child.name));
+        el.addEventListener('click', ()=> {
+          if (child.type==='file') {
+            previewFile(child, currentPath.concat(child.name));
+          }
+        });
+        el.addEventListener('dblclick', ()=> {
+          if (child.type==='folder') {
+            navigateTo(currentPath.concat(child.name));
+          } else {
+            window.open('/'+currentPath.concat(child.name).join('/'),
+                        '_blank');
+          }
+        });
+        listPane.append(el);
+      });
+    }
+
+    function navigateTo(path) {
+      currentPath = path.slice();
+      address.value = '/' + currentPath.join('/');
+      let node = fsRoot;
+      for (let p of currentPath) {
+        node = node.children.find(c => c.name===p) || node;
+      }
+      renderList(node);
+      pushHistory(currentPath);
+    }
+
+    function navigateViaHistory() {
+      currentPath = historyStack[histPos].slice();
+      address.value = '/' + currentPath.join('/');
+      let node = fsRoot;
+      for (let seg of currentPath) {
+        node = node.children.find(c => c.name===seg) || node;
+      }
+      renderList(node);
+      updateNavButtons();
+    }
+
+    function navigateByInput() {
+      const val = address.value.trim()
+                     .replace(/^\/+|\/+$/g,'');
+      const segs = val ? val.split('/') : [];
+      let node = fsRoot, valid = true;
+      segs.forEach(s => {
+        const nxt = node.children.find(c=>c.name===s);
+        if (!nxt) valid = false;
+        else node = nxt;
+      });
+      if (!valid) return alert('Path not found');
+      if (node.type==='folder') {
+        navigateTo(segs);
+      } else {
+
+        navigateTo(segs.slice(0,-1));
+        previewFile(node, segs);
+      }
+    }
+
+    function previewFile(child, pathArr) {
+      const url = '/' + pathArr.join('/');
+      previewTitle.textContent = child.name;
+      previewPane.innerHTML = '';
+      const ext = child.name.split('.').pop().toLowerCase();
+
+      if (['png','jpg','jpeg','gif','bmp','svg','webp']
+        .includes(ext)) {
+        const img = document.createElement('img');
+        img.src = url; previewPane.append(img);
+
+      } else if (['mp3','wav','ogg'].includes(ext)) {
+        const audio = document.createElement('audio');
+        audio.controls = true; audio.src = url;
+        previewPane.append(audio);
+
+      } else if (['mp4','webm','ogg'].includes(ext)) {
+        const video = document.createElement('video');
+        video.controls = true; video.src = url;
+        previewPane.append(video);
+
+      } else if (ext==='md' || ext==='markdown') {
+        const el = document.createElement('ext');
+        el.setAttribute('lang','markdown');
+        el.setAttribute('src', url);
+        previewPane.append(el);
+        processExt(previewPane);
+
+      } else if (ext==='csv') {
+        const el = document.createElement('ext');
+        el.setAttribute('lang','csv');
+        el.setAttribute('src', url);
+        previewPane.append(el);
+        processExt(previewPane);
+
+      } else if (ext==='xml') {
+        const el = document.createElement('ext');
+        el.setAttribute('lang','rss');
+        el.setAttribute('src', url);
+        previewPane.append(el);
+        processExt(previewPane);
+
+      } else {
+        fetch(url).then(r=>r.text()).then(txt => {
+          const pre = document.createElement('pre');
+          pre.textContent = txt;
+          previewPane.append(pre);
+        });
+      }
+    }
+
+    function loadScript(src) {
+      return new Promise((res, rej) => {
+        const s = document.createElement('script');
+        s.src = src; s.onload = res; s.onerror = rej;
+        document.head.appendChild(s);
+      });
+    }
+    function parseCSV(text) {
+      return text.trim().split('\n')
+        .map(r=>r.split(',').map(c=>c.trim()));
+    }
+    function arrayToTable(arr) {
+      const tbl = document.createElement('table');
+      arr.forEach((row,i)=>{
+        const tr = document.createElement('tr');
+        row.forEach(cell=>{
+          const cellEl = i===0
+            ? document.createElement('th')
+            : document.createElement('td');
+          cellEl.textContent = cell;
+          tr.appendChild(cellEl);
+        });
+        tbl.appendChild(tr);
+      });
+      return tbl;
+    }
+
+    let mdLoaded = false;
+    async function processExt(container=document) {
+      if (!mdLoaded) {
+        const mdScripts = [
+          "https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js",
+          "https://cdn.jsdelivr.net/npm/markdown-it-footnote/dist/markdown-it-footnote.min.js",
+          "https://cdn.jsdelivr.net/npm/markdown-it-deflist/dist/markdown-it-deflist.min.js",
+          "https://cdn.jsdelivr.net/npm/markdown-it-task-lists/dist/markdown-it-task-lists.min.js",
+          "https://cdn.jsdelivr.net/npm/markdown-it-emoji/dist/markdown-it-emoji.min.js"
+        ];
+        for (let s of mdScripts) {
+          try { await loadScript(s); }
+          catch(e){ console.error("load failed:", s, e); }
+        }
+        mdLoaded = true;
+      }
+      const md = window.markdownit({
+        html:true, linkify:true, typographer:true
+      })
+        .use(window.markdownitFootnote)
+        .use(window.markdownitDeflist)
+        .use(window.markdownitTaskLists,{enabled:true,label:true})
+        .use(window.markdownitEmoji);
+      const mdEls = container.querySelectorAll('ext[lang="markdown"]');
+      await Promise.all(Array.from(mdEls).map(async el=>{
+        let txt = "", src = el.getAttribute("src");
+        if (src) {
+          try { txt = await (await fetch(src)).text(); }
+          catch {}
+        }
+        el.innerHTML = md.render(txt || el.textContent);
+        el.querySelectorAll("a").forEach(a=>{
+          a.target="_blank"; a.rel="noopener noreferrer";
+        });
+      }));
+      const csvEls = container.querySelectorAll('ext[lang="csv"]');
+      csvEls.forEach(async el=>{
+        let txt="", src=el.getAttribute("src");
+        if (src) {
+          try { txt = await (await fetch(src)).text(); }
+          catch(e){ el.textContent="CSV load error"; return; }
+        }
+        const tbl = arrayToTable(parseCSV(txt||el.textContent));
+        el.innerHTML=""; el.append(tbl);
+      });
+      const rssEls = container.querySelectorAll('ext[lang="rss"]');
+      rssEls.forEach(feed=>{
+        const loadFeed = ()=>{
+          const url = feed.getAttribute("src");
+          if (!url) return;
+          fetch(url).then(r=>r.text()).then(xml=>{
+            const doc = new DOMParser()
+              .parseFromString(xml,"application/xml");
+            feed.innerHTML="";
+            doc.querySelectorAll("item").forEach(item=>{
+              const wrap = document.createElement("div");
+              wrap.className="rss-item";
+              const t = item.querySelector("title");
+              const l = item.querySelector("link");
+              if (t) {
+                const h3 = document.createElement("h3");
+                const a = document.createElement("a");
+                a.textContent=t.textContent;
+                a.href = l?l.textContent:"#";
+                a.target="_blank"; a.rel="noopener noreferrer";
+                h3.append(a); wrap.append(h3);
+              }
+              Array.from(item.children).forEach(c=>{
+                const n = c.nodeName.toLowerCase();
+                if (n==="title"||n==="link") return;
+                const fn = {
+                  description(nd){
+                    const p=document.createElement("p");
+                    p.textContent=nd.textContent; return p;
+                  },
+                  author(nd){
+                    const addr=document.createElement("address");
+                    addr.textContent=nd.textContent; return addr;
+                  },
+                  pubdate(nd){
+                    const time=document.createElement("time");
+                    time.dateTime=new Date(nd.textContent)
+                      .toISOString();
+                    time.textContent=nd.textContent;
+                    return time;
+                  },
+                  enclosure(nd){
+                    const url=nd.getAttribute("url")||"";
+                    const type=nd.getAttribute("type")||"";
+                    if (type.startsWith("audio")) {
+                      const audio=document.createElement("audio");
+                      audio.controls=true; audio.src=url;
+                      return audio;
+                    }
+                    if (type.startsWith("video")) {
+                      const video=document.createElement("video");
+                      video.controls=true; video.src=url;
+                      return video;
+                    }
+                    return document.createElement("span");
+                  }
+                }[n];
+                if (fn) wrap.append(fn(c));
+              });
+              feed.append(wrap);
+            });
+          }).catch(e=>{
+            console.error("RSS error",e);
+            feed.textContent="RSS load error";
+          });
+        };
+        loadFeed();
+        setInterval(loadFeed, 15000);
+      });
+    }
+
+    const backBtn = document.getElementById('back');
+    const fwdBtn  = document.getElementById('forward');
+    const upBtn   = document.getElementById('up');
+    const address = document.getElementById('address');
+    const treePane= document.getElementById('tree');
+    const listPane= document.getElementById('list');
+    const previewPane   = document.getElementById('preview');
+    const previewTitle  = document.getElementById('preview-title');
+
+    backBtn.addEventListener('click', ()=>{ if(histPos>0){ histPos--; navigateViaHistory(); }});
+    fwdBtn.addEventListener('click', ()=>{ if(histPos < historyStack.length-1){ histPos++; navigateViaHistory(); }});
+    upBtn.addEventListener('click', ()=>{ if(currentPath.length) navigateTo(currentPath.slice(0,-1)); });
+    address.addEventListener('keypress', e=>{ if(e.key==='Enter') navigateByInput(); });
+
+    (async ()=>{
+      fsRoot = await loadTree();
+      renderTree(fsRoot, treePane);
+      navigateTo([]);
+    })();
+  </script>
+  <script>
+    function makeDraggable(windowSelector) {
+      const win = document.querySelector(windowSelector);
+      const titleBar = win.querySelector('.title-bar');
+      let isDragging = false;
+      let offsetX = 0, offsetY = 0;
+
+      if (windowSelector === '.preview-window') {
+        win.style.left = win.offsetLeft + 'px';
+        win.style.top = win.offsetTop + 'px';
+        win.style.position = 'absolute';
+      } else {
+
+        win.style.left = win.offsetLeft + 'px';
+        win.style.top = win.offsetTop + 'px';
+        win.style.position = 'absolute';
+      }
+
+      titleBar.addEventListener('mousedown', function (e) {
+        isDragging = true;
+
+        offsetX = e.clientX - win.offsetLeft;
+        offsetY = e.clientY - win.offsetTop;
+
+        document.body.style.userSelect = 'none';
+      });
+
+      document.addEventListener('mousemove', function (e) {
+        if (!isDragging) return;
+        win.style.left = (e.clientX - offsetX) + 'px';
+        win.style.top = (e.clientY - offsetY) + 'px';
+      });
+
+      document.addEventListener('mouseup', function () {
+        isDragging = false;
+        document.body.style.userSelect = '';
+      });
+    }
+
+    makeDraggable('.folder-window');
+    makeDraggable('.preview-window');
+  </script>
+  
+</body>
+</html>
