@@ -3,10 +3,26 @@
 
 <head>
     <meta charset="UTF-8" />
-    <title>catci - Folder</title>
+    <title>zip.catci</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="A shared folder of files, icons, scripts, and resources used across catci's websites and projects. Browse and discover the toolbox behind catci.net." />
+    <meta name="keywords" content="catci, assets, resources, icons, scripts, images, shared folder, web development, catci.net" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://zip.catci.net/" />
+
+    <meta property="og:title" content="catci - Shared Folder of Assets & Resources" />
+    <meta property="og:description" content="Browse the collection of files, icons, scripts, and resources powering catci's web projects." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://zip.catci.net/" />
+    <meta property="og:image" content="https://zip.catci.net/assets/folder-og.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="catci - Shared Folder of Assets & Resources" />
+    <meta name="twitter:description" content="Browse the collection of files, icons, scripts, and resources powering catci's web projects." />
+    <meta name="twitter:image" content="https://zip.catci.net/assets/folder-og.png" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
-        /* Windows 95 color palette */
         :root {
             --win95-bg: #c0c0c0;
             --win95-light: #fff;
@@ -130,7 +146,6 @@
             font-family: 'MS Sans Serif', Arial, sans-serif;
         }
 
-        /* Pixel font for extra retro */
         @font-face {
             font-family: 'MS Sans Serif';
             src: local('MS Sans Serif'), local('Arial');
@@ -197,13 +212,13 @@
 </head>
 
 <body>
-    <div class="folder-window">
+    <div class="folder-window" itemscope itemtype="https://schema.org/WebPage">
         <div class="title-bar">
-            <span class="icon"></span>
-            <h1>
+            <span class="icon" aria-label="Folder icon"></span>
+            <h1 itemprop="name">
                 zip.catci
             </h1>
-            <span class="close" title="Close">×</span>
+            <span class="close" title="Close" aria-label="Close window">×</span>
         </div>
         <div class="folder-content">
             <div class="flex-row aic">
@@ -309,16 +324,18 @@ _______________\:::\____\/::\   \/:::/  \:::\____\/:::/  \:::\   \:::|    |
             </div>
 
 
-            <div class="folder-desc">
-                <p>This folder contains a collection of files, assets, and resources used across my other websites and
+            <section class="folder-desc" aria-labelledby="folder-desc-heading">
+                <h2 id="folder-desc-heading" style="display:none;">Folder Description</h2>
+                <p itemprop="description">
+                    This folder contains a collection of files, assets, and resources used across my other websites and
                     projects. Think of it as the shared toolbox for all things catci—icons, scripts, images, and more.
                     Feel free to <a href="/files">browse</a> around and see what powers the rest of my web creations!
                 </p>
-                <div class="links flex-row">
-                    <a href="//catci.net"><i class="fa-solid fa-house"></i></a>
-                    <a href="https://github.com/cat-ci"><i class="fa-brands fa-github-alt"></i></a>
-                </div>
-            </div>
+                <nav class="links flex-row" aria-label="Site links">
+                    <a href="//catci.net" aria-label="catci.net home"><i class="fa-solid fa-house"></i></a>
+                    <a href="https://github.com/cat-ci" aria-label="catci GitHub"><i class="fa-brands fa-github-alt"></i></a>
+                </nav>
+            </section>
         </div>
     </div>
 </body>
