@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>catci - Folder</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+        /* Windows 95 color palette */
+        :root {
+            --win95-bg: #c0c0c0;
+            --win95-light: #fff;
+            --win95-dark: #808080;
+            --win95-shadow: #000;
+            --win95-blue: #000080;
+            --win95-yellow: #ffe600;
+            --win95-border: #808080;
+            --win95-highlight: #fcfcfc;
+        }
+
+        body {
+            background: #008080;
+            font-family: 'MS Sans Serif', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .folder-window {
+            width: 620px;
+            border: 2px solid var(--win95-border);
+            box-shadow: 2px 2px 0 var(--win95-shadow);
+            background: var(--win95-bg);
+            font-size: 15px;
+        }
+
+        .title-bar {
+            background: linear-gradient(to bottom,
+                    var(--win95-blue) 0%,
+                    #3a6ea5 100%);
+            color: var(--win95-light);
+            padding: 3px 8px;
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            font-size: 16px;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--win95-dark);
+            user-select: none;
+        }
+
+        .title-bar .icon {
+            width: 18px;
+            height: 16px;
+            margin-right: 8px;
+            display: inline-block;
+            background: linear-gradient(135deg,
+                    var(--win95-yellow) 60%,
+                    #e0c000 100%);
+            border: 1px solid var(--win95-border);
+            box-shadow: 1px 1px 0 var(--win95-shadow);
+            position: relative;
+        }
+
+        .title-bar .icon::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--win95-highlight);
+            opacity: 0.5;
+        }
+
+        .title-bar .close {
+            margin-left: auto;
+            width: 18px;
+            height: 16px;
+            background: var(--win95-bg);
+            border: 2px outset var(--win95-light);
+            color: var(--win95-shadow);
+            font-weight: bold;
+            font-family: monospace;
+            text-align: center;
+            line-height: 16px;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 1px 1px 0 var(--win95-shadow);
+        }
+
+        .title-bar .close:active {
+            border: 2px inset var(--win95-dark);
+            background: var(--win95-dark);
+        }
+
+        .folder-content {
+            background: repeating-linear-gradient(45deg,
+                    #ffe600,
+                    #ffe600 2px,
+                    #fcfcfc 2px,
+                    #fcfcfc 4px);
+            border: 2px inset var(--win95-light);
+            margin: 16px;
+            padding: 24px 16px 16px 16px;
+            min-height: 180px;
+            box-shadow: 1px 1px 0 var(--win95-shadow);
+            position: relative;
+        }
+
+        .folder-label {
+            font-size: 26px;
+            font-weight: bold;
+            color: var(--win95-blue);
+            text-shadow: 1px 1px 0 var(--win95-highlight);
+            margin-bottom: 12px;
+            letter-spacing: 2px;
+            font-family: 'MS Sans Serif', Arial, sans-serif;
+            text-align: center;
+        }
+
+        .folder-desc {
+            font-size: 15px;
+            color: var(--win95-shadow);
+            text-align: center;
+            margin-top: 8px;
+            font-family: 'MS Sans Serif', Arial, sans-serif;
+        }
+
+        /* Pixel font for extra retro */
+        @font-face {
+            font-family: 'MS Sans Serif';
+            src: local('MS Sans Serif'), local('Arial');
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 15px;
+        }
+
+        .flex-row {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+
+        pre {
+            font-size: 6px;
+            line-height: 4px;
+            color: var(--win95-blue);
+            font-weight: bold;
+        }
+
+        .aic {
+            gap: 10px;
+            justify-content: space-between;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        .flex-col {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .flex-col pre {
+            font-weight: 1300;
+        }
+
+        p {
+            font-weight: 100;
+            font-family: 'MS Sans Serif';
+            color: var(--win95-blue);
+            padding: 0px 10px 0px 10px;
+        }
+
+        p a {
+            color: var(--win95-blue);
+            text-shadow:
+                0 0 1px var(--win95-blue),
+                0 0 2px var(--win95-blue)
+        }
+        .links{
+            gap: 5px;
+            
+        }
+        .links a{
+            color: var(--win95-blue);
+            text-decoration: none;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+
+<body>
+    <div class="folder-window">
+        <div class="title-bar">
+            <span class="icon"></span>
+            <h1>
+                zip.catci
+            </h1>
+            <span class="close" title="Close">×</span>
+        </div>
+        <div class="folder-content">
+            <div class="flex-row aic">
+                <pre>:::::-++++++:#-==#::::::::::::::::::::::
+:::::%+++++*::==-=-%:::::::--.::::..: ::
+:::::@+++++:::=----==:::++**@*-::::  :::
+:::::++++:+:::-=-==---@+***::=*::: ::::-
+:::::++++:::::--------********==::::%===
+:::::*+++:::::=-------=*********=+=-===+
+:::::=+++::::::----#**-**********=--==-+
+:::::-++++::*-=---==-=***#*******=-===++
+::::.=++++-::*--=-=@**************%-==++
+:::::=-+:::::::*@***##**************=*++
+:::::=--=+-:::@=*******************=@::+
+:::::==--=--====*********************=-+
+: ::%**----##**#*******#***********#***=
+:::=***---@*#******%@@@*****************
+-%=*=----=***#*****#%*******@@******#:++
+=***#=--=***#**##@@@**%*****@=*******-:+
+*******@+#*#***@@@@@@=@***#=*@****#=+=:%
+***##*##**###@@@@@  @@*****#==**==*===+%
+##***####*###@-%%%   @%#****==***=***=+*
+######*######==*     @==@*#=@@*******=@=
+#########*##@=%+-+   ----=#@@@@@**#*#*++
+=#*#########=-==@-: %=----%% #@*#***=-@+
+#########*##%--=@@@ -=---@%%  @#*#**=+++
+#%###########===#--------+*  @@@***=****
+##############*#---------+-: @#*##******
+#####*###%#####----==%%-=@@:@@#***#*****
+#######*=#####--------=----@@@####+***##
+#####------*##-------------=-@####*#####
+*@@%-----=--##-=-+--=--*--====#####%##%=
+%#%----------#=--- -  --===-########==*#
+**---==----=-%==---+-=#=====###########%
+#%--------=---==-=----======##########+*
+@=---+-=---=--#==%----=========#########
+#=--------------+====#=========########%
+%------=-----=---===-=+========@######@%
+#----=--==----------=*========+==##+%%%%
+@#%:#.-=-----==----=*===*====*====##+%%%
+@.%% %-----------=-===============##=%%%
+@#-%@ ----===----*-=======#=*=====###%%%
+#@ .+%-=-=--=---*-*-=====#==*=====###%%%</pre>
+                <div class="flex-col">
+                    <pre>
+
+
+          _____                    _____                    _____          
+         /\    \                  /\    \                  /\    \         
+        /::\    \                /::\    \                /::\    \        
+        \:::\    \               \:::\    \              /::::\    \       
+         \:::\    \               \:::\    \            /::::::\    \      
+          \:::\    \               \:::\    \          /:::/\:::\    \     
+           \:::\    \               \:::\    \        /:::/__\:::\    \    
+            \:::\    \              /::::\    \      /::::\   \:::\    \   
+             \:::\    \    ____    /::::::\    \    /::::::\   \:::\    \  
+              \:::\    \  /\   \  /:::/\:::\    \  /:::/\:::\   \:::\____\ 
+_______________\:::\____\/::\   \/:::/  \:::\____\/:::/  \:::\   \:::|    |
+\::::::::::::::::::/    /\:::\  /:::/    \::/    /\::/    \:::\  /:::|____|
+ \::::::::::::::::/____/  \:::\/:::/    / \/____/  \/_____/\:::\/:::/    / 
+  \:::\~~~~\~~~~~~         \::::::/    /                    \::::::/    /  
+   \:::\    \               \::::/____/                      \::::/    /   
+    \:::\    \               \:::\    \                       \::/____/    
+     \:::\    \               \:::\    \                       ~~          
+      \:::\    \               \:::\    \                                  
+       \:::\____\               \:::\____\                                 
+        \::/    /                \::/    /                                 
+         \/____/                  \/____/                                  
+                                                                           
+
+
+</pre>
+                    <pre>
+
+
+          _____                    _____                _____                    _____                    _____          
+         /\    \                  /\    \              /\    \                  /\    \                  /\    \         
+        /::\    \                /::\    \            /::\    \                /::\    \                /::\    \        
+       /::::\    \              /::::\    \           \:::\    \              /::::\    \               \:::\    \       
+      /::::::\    \            /::::::\    \           \:::\    \            /::::::\    \               \:::\    \      
+     /:::/\:::\    \          /:::/\:::\    \           \:::\    \          /:::/\:::\    \               \:::\    \     
+    /:::/  \:::\    \        /:::/__\:::\    \           \:::\    \        /:::/  \:::\    \               \:::\    \    
+   /:::/    \:::\    \      /::::\   \:::\    \          /::::\    \      /:::/    \:::\    \              /::::\    \   
+  /:::/    / \:::\    \    /::::::\   \:::\    \        /::::::\    \    /:::/    / \:::\    \    ____    /::::::\    \  
+ /:::/    /   \:::\    \  /:::/\:::\   \:::\    \      /:::/\:::\    \  /:::/    /   \:::\    \  /\   \  /:::/\:::\    \ 
+/:::/____/     \:::\____\/:::/  \:::\   \:::\____\    /:::/  \:::\____\/:::/____/     \:::\____\/::\   \/:::/  \:::\____\
+\:::\    \      \::/    /\::/    \:::\  /:::/    /   /:::/    \::/    /\:::\    \      \::/    /\:::\  /:::/    \::/    /
+ \:::\    \      \/____/  \/____/ \:::\/:::/    /   /:::/    / \/____/  \:::\    \      \/____/  \:::\/:::/    / \/____/ 
+  \:::\    \                       \::::::/    /   /:::/    /            \:::\    \               \::::::/    /          
+   \:::\    \                       \::::/    /   /:::/    /              \:::\    \               \::::/____/           
+    \:::\    \                      /:::/    /    \::/    /                \:::\    \               \:::\    \           
+     \:::\    \                    /:::/    /      \/____/                  \:::\    \               \:::\    \          
+      \:::\    \                  /:::/    /                                 \:::\    \               \:::\    \         
+       \:::\____\                /:::/    /                                   \:::\____\               \:::\____\        
+        \::/    /                \::/    /                                     \::/    /                \::/    /        
+         \/____/                  \/____/                                       \/____/                  \/____/         
+                                                                                                                         
+
+
+</pre>
+                </div>
+
+            </div>
+
+
+            <div class="folder-desc">
+                <p>This folder contains a collection of files, assets, and resources used across my other websites and
+                    projects. Think of it as the shared toolbox for all things catci—icons, scripts, images, and more.
+                    Feel free to <a href="/files">browse</a> around and see what powers the rest of my web creations!
+                </p>
+                <div class="links flex-row">
+                    <a href="//catci.net"><i class="fa-solid fa-house"></i></a>
+                    <a href="https://github.com/cat-ci"><i class="fa-brands fa-github-alt"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
