@@ -1,0 +1,1142 @@
+[
+  {
+    "filename": "paper-staina.webp",
+    "top_left": [
+      0,
+      0
+    ],
+    "top_right": [
+      2700,
+      0
+    ],
+    "bottom_left": [
+      0,
+      2548
+    ],
+    "bottom_right": [
+      2700,
+      2548
+    ]
+  },
+  {
+    "filename": "notepad.webp",
+    "top_left": [
+      2700,
+      0
+    ],
+    "top_right": [
+      5200,
+      0
+    ],
+    "bottom_left": [
+      2700,
+      2500
+    ],
+    "bottom_right": [
+      5200,
+      2500
+    ]
+  },
+  {
+    "filename": "paper-stainb.webp",
+    "top_left": [
+      0,
+      2548
+    ],
+    "top_right": [
+      2432,
+      2548
+    ],
+    "bottom_left": [
+      0,
+      5060
+    ],
+    "bottom_right": [
+      2432,
+      5060
+    ]
+  },
+  {
+    "filename": "crt.webp",
+    "top_left": [
+      5200,
+      0
+    ],
+    "top_right": [
+      8200,
+      0
+    ],
+    "bottom_left": [
+      5200,
+      2000
+    ],
+    "bottom_right": [
+      8200,
+      2000
+    ]
+  },
+  {
+    "filename": "noise.webp",
+    "top_left": [
+      8200,
+      0
+    ],
+    "top_right": [
+      10120,
+      0
+    ],
+    "bottom_left": [
+      8200,
+      1080
+    ],
+    "bottom_right": [
+      10120,
+      1080
+    ]
+  },
+  {
+    "filename": "speaker.webp",
+    "top_left": [
+      2432,
+      2548
+    ],
+    "top_right": [
+      3712,
+      2548
+    ],
+    "bottom_left": [
+      2432,
+      3828
+    ],
+    "bottom_right": [
+      3712,
+      3828
+    ]
+  },
+  {
+    "filename": "sunrays.webp",
+    "top_left": [
+      10120,
+      0
+    ],
+    "top_right": [
+      11605,
+      0
+    ],
+    "bottom_left": [
+      10120,
+      737
+    ],
+    "bottom_right": [
+      11605,
+      737
+    ]
+  },
+  {
+    "filename": "cobweb002.webp",
+    "top_left": [
+      3712,
+      2548
+    ],
+    "top_right": [
+      4736,
+      2548
+    ],
+    "bottom_left": [
+      3712,
+      3572
+    ],
+    "bottom_right": [
+      4736,
+      3572
+    ]
+  },
+  {
+    "filename": "moss_wall_decal.webp",
+    "top_left": [
+      4736,
+      2548
+    ],
+    "top_right": [
+      5760,
+      2548
+    ],
+    "bottom_left": [
+      4736,
+      3572
+    ],
+    "bottom_right": [
+      5760,
+      3572
+    ]
+  },
+  {
+    "filename": "overlay_moss01.webp",
+    "top_left": [
+      5760,
+      2548
+    ],
+    "top_right": [
+      6784,
+      2548
+    ],
+    "bottom_left": [
+      5760,
+      3572
+    ],
+    "bottom_right": [
+      6784,
+      3572
+    ]
+  },
+  {
+    "filename": "underground_concrete_ceiling001.webp",
+    "top_left": [
+      6784,
+      2548
+    ],
+    "top_right": [
+      7808,
+      2548
+    ],
+    "bottom_left": [
+      6784,
+      3572
+    ],
+    "bottom_right": [
+      7808,
+      3572
+    ]
+  },
+  {
+    "filename": "underground_condemed_testarea.webp",
+    "top_left": [
+      11605,
+      0
+    ],
+    "top_right": [
+      13653,
+      0
+    ],
+    "bottom_left": [
+      11605,
+      512
+    ],
+    "bottom_right": [
+      13653,
+      512
+    ]
+  },
+  {
+    "filename": "bush.webp",
+    "top_left": [
+      8200,
+      1080
+    ],
+    "top_right": [
+      9199,
+      1080
+    ],
+    "bottom_left": [
+      8200,
+      1879
+    ],
+    "bottom_right": [
+      9199,
+      1879
+    ]
+  },
+  {
+    "filename": "crt.webp",
+    "top_left": [
+      9199,
+      1080
+    ],
+    "top_right": [
+      10196,
+      1080
+    ],
+    "bottom_left": [
+      9199,
+      1734
+    ],
+    "bottom_right": [
+      10196,
+      1734
+    ]
+  },
+  {
+    "filename": "cat.webp",
+    "top_left": [
+      13653,
+      0
+    ],
+    "top_right": [
+      15072,
+      0
+    ],
+    "bottom_left": [
+      13653,
+      449
+    ],
+    "bottom_right": [
+      15072,
+      449
+    ]
+  },
+  {
+    "filename": "frame.webp",
+    "top_left": [
+      10196,
+      1080
+    ],
+    "top_right": [
+      11076,
+      1080
+    ],
+    "bottom_left": [
+      10196,
+      1660
+    ],
+    "bottom_right": [
+      11076,
+      1660
+    ]
+  },
+  {
+    "filename": "ground.webp",
+    "top_left": [
+      11076,
+      1080
+    ],
+    "top_right": [
+      11876,
+      1080
+    ],
+    "bottom_left": [
+      11076,
+      1614
+    ],
+    "bottom_right": [
+      11876,
+      1614
+    ]
+  },
+  {
+    "filename": "pfp_placeholder.webp",
+    "top_left": [
+      7808,
+      2548
+    ],
+    "top_right": [
+      8408,
+      2548
+    ],
+    "bottom_left": [
+      7808,
+      3148
+    ],
+    "bottom_right": [
+      8408,
+      3148
+    ]
+  },
+  {
+    "filename": "paper4.webp",
+    "top_left": [
+      2432,
+      3828
+    ],
+    "top_right": [
+      2935,
+      3828
+    ],
+    "bottom_left": [
+      2432,
+      4533
+    ],
+    "bottom_right": [
+      2935,
+      4533
+    ]
+  },
+  {
+    "filename": "paper.webp",
+    "top_left": [
+      11876,
+      1080
+    ],
+    "top_right": [
+      12576,
+      1080
+    ],
+    "bottom_left": [
+      11876,
+      1570
+    ],
+    "bottom_right": [
+      12576,
+      1570
+    ]
+  },
+  {
+    "filename": "smudge.webp",
+    "top_left": [
+      15072,
+      0
+    ],
+    "top_right": [
+      15818,
+      0
+    ],
+    "bottom_left": [
+      15072,
+      420
+    ],
+    "bottom_right": [
+      15818,
+      420
+    ]
+  },
+  {
+    "filename": "computer-frame.webp",
+    "top_left": [
+      8408,
+      2548
+    ],
+    "top_right": [
+      8988,
+      2548
+    ],
+    "bottom_left": [
+      8408,
+      3073
+    ],
+    "bottom_right": [
+      8988,
+      3073
+    ]
+  },
+  {
+    "filename": "decalstain001a.webp",
+    "top_left": [
+      8988,
+      2548
+    ],
+    "top_right": [
+      9500,
+      2548
+    ],
+    "bottom_left": [
+      8988,
+      3060
+    ],
+    "bottom_right": [
+      9500,
+      3060
+    ]
+  },
+  {
+    "filename": "factory_concrete_wall001a.webp",
+    "top_left": [
+      9500,
+      2548
+    ],
+    "top_right": [
+      10012,
+      2548
+    ],
+    "bottom_left": [
+      9500,
+      3060
+    ],
+    "bottom_right": [
+      10012,
+      3060
+    ]
+  },
+  {
+    "filename": "ivy02.webp",
+    "top_left": [
+      10012,
+      2548
+    ],
+    "top_right": [
+      10524,
+      2548
+    ],
+    "bottom_left": [
+      10012,
+      3060
+    ],
+    "bottom_right": [
+      10524,
+      3060
+    ]
+  },
+  {
+    "filename": "ivy03.webp",
+    "top_left": [
+      10524,
+      2548
+    ],
+    "top_right": [
+      11036,
+      2548
+    ],
+    "bottom_left": [
+      10524,
+      3060
+    ],
+    "bottom_right": [
+      11036,
+      3060
+    ]
+  },
+  {
+    "filename": "stain_concrete002.webp",
+    "top_left": [
+      11036,
+      2548
+    ],
+    "top_right": [
+      11548,
+      2548
+    ],
+    "bottom_left": [
+      11036,
+      3060
+    ],
+    "bottom_right": [
+      11548,
+      3060
+    ]
+  },
+  {
+    "filename": "stain_concrete004.webp",
+    "top_left": [
+      11548,
+      2548
+    ],
+    "top_right": [
+      12060,
+      2548
+    ],
+    "bottom_left": [
+      11548,
+      3060
+    ],
+    "bottom_right": [
+      12060,
+      3060
+    ]
+  },
+  {
+    "filename": "underground_metalgrate001c_mip0.webp",
+    "top_left": [
+      12060,
+      2548
+    ],
+    "top_right": [
+      12572,
+      2548
+    ],
+    "bottom_left": [
+      12060,
+      3060
+    ],
+    "bottom_right": [
+      12572,
+      3060
+    ]
+  },
+  {
+    "filename": "underground_metalgrate002a.webp",
+    "top_left": [
+      12572,
+      2548
+    ],
+    "top_right": [
+      13084,
+      2548
+    ],
+    "bottom_left": [
+      12572,
+      3060
+    ],
+    "bottom_right": [
+      13084,
+      3060
+    ]
+  },
+  {
+    "filename": "underground_metalgrate003a.webp",
+    "top_left": [
+      13084,
+      2548
+    ],
+    "top_right": [
+      13596,
+      2548
+    ],
+    "bottom_left": [
+      13084,
+      3060
+    ],
+    "bottom_right": [
+      13596,
+      3060
+    ]
+  },
+  {
+    "filename": "catci.webp",
+    "top_left": [
+      2935,
+      3828
+    ],
+    "top_right": [
+      3413,
+      3828
+    ],
+    "bottom_left": [
+      2935,
+      4357
+    ],
+    "bottom_right": [
+      3413,
+      4357
+    ]
+  },
+  {
+    "filename": "residue.webp",
+    "top_left": [
+      3413,
+      3828
+    ],
+    "top_right": [
+      3891,
+      3828
+    ],
+    "bottom_left": [
+      3413,
+      4357
+    ],
+    "bottom_right": [
+      3891,
+      4357
+    ]
+  },
+  {
+    "filename": "stickynote.webp",
+    "top_left": [
+      3891,
+      3828
+    ],
+    "top_right": [
+      4369,
+      3828
+    ],
+    "bottom_left": [
+      3891,
+      4357
+    ],
+    "bottom_right": [
+      4369,
+      4357
+    ]
+  },
+  {
+    "filename": "overgrowth.webp",
+    "top_left": [
+      11605,
+      512
+    ],
+    "top_right": [
+      12455,
+      512
+    ],
+    "bottom_left": [
+      11605,
+      730
+    ],
+    "bottom_right": [
+      12455,
+      730
+    ]
+  },
+  {
+    "filename": "fan.webp",
+    "top_left": [
+      15818,
+      0
+    ],
+    "top_right": [
+      16218,
+      0
+    ],
+    "bottom_left": [
+      15818,
+      406
+    ],
+    "bottom_right": [
+      16218,
+      406
+    ]
+  },
+  {
+    "filename": "highlight.webp",
+    "top_left": [
+      13596,
+      2548
+    ],
+    "top_right": [
+      13996,
+      2548
+    ],
+    "bottom_left": [
+      13596,
+      2948
+    ],
+    "bottom_right": [
+      13996,
+      2948
+    ]
+  },
+  {
+    "filename": "cat-doodle.webp",
+    "top_left": [
+      13996,
+      2548
+    ],
+    "top_right": [
+      14331,
+      2548
+    ],
+    "bottom_left": [
+      13996,
+      2928
+    ],
+    "bottom_right": [
+      14331,
+      2928
+    ]
+  },
+  {
+    "filename": "tape.webp",
+    "top_left": [
+      14331,
+      2548
+    ],
+    "top_right": [
+      14963,
+      2548
+    ],
+    "bottom_left": [
+      14331,
+      2748
+    ],
+    "bottom_right": [
+      14963,
+      2748
+    ]
+  },
+  {
+    "filename": "audio1.webp",
+    "top_left": [
+      0,
+      5060
+    ],
+    "top_right": [
+      109,
+      5060
+    ],
+    "bottom_left": [
+      0,
+      5841
+    ],
+    "bottom_right": [
+      109,
+      5841
+    ]
+  },
+  {
+    "filename": "audio2.webp",
+    "top_left": [
+      109,
+      5060
+    ],
+    "top_right": [
+      218,
+      5060
+    ],
+    "bottom_left": [
+      109,
+      5841
+    ],
+    "bottom_right": [
+      218,
+      5841
+    ]
+  },
+  {
+    "filename": "video.webp",
+    "top_left": [
+      218,
+      5060
+    ],
+    "top_right": [
+      327,
+      5060
+    ],
+    "bottom_left": [
+      218,
+      5841
+    ],
+    "bottom_right": [
+      327,
+      5841
+    ]
+  },
+  {
+    "filename": "paper-cutout-a.webp",
+    "top_left": [
+      14963,
+      2548
+    ],
+    "top_right": [
+      15328,
+      2548
+    ],
+    "bottom_left": [
+      14963,
+      2748
+    ],
+    "bottom_right": [
+      15328,
+      2748
+    ]
+  },
+  {
+    "filename": "chicken.webp",
+    "top_left": [
+      12576,
+      1080
+    ],
+    "top_right": [
+      12832,
+      1080
+    ],
+    "bottom_left": [
+      12576,
+      1336
+    ],
+    "bottom_right": [
+      12832,
+      1336
+    ]
+  },
+  {
+    "filename": "drainpipe_overlay01.webp",
+    "top_left": [
+      12832,
+      1080
+    ],
+    "top_right": [
+      13088,
+      1080
+    ],
+    "bottom_left": [
+      12832,
+      1336
+    ],
+    "bottom_right": [
+      13088,
+      1336
+    ]
+  },
+  {
+    "filename": "floppy.webp",
+    "top_left": [
+      10120,
+      737
+    ],
+    "top_right": [
+      10370,
+      737
+    ],
+    "bottom_left": [
+      10120,
+      999
+    ],
+    "bottom_right": [
+      10370,
+      999
+    ]
+  },
+  {
+    "filename": "HLTX1000.webp",
+    "top_left": [
+      16218,
+      0
+    ],
+    "top_right": [
+      16346,
+      0
+    ],
+    "bottom_left": [
+      16218,
+      160
+    ],
+    "bottom_right": [
+      16346,
+      160
+    ]
+  },
+  {
+    "filename": "decalporthole001b.webp",
+    "top_left": [
+      16218,
+      160
+    ],
+    "top_right": [
+      16346,
+      160
+    ],
+    "bottom_left": [
+      16218,
+      288
+    ],
+    "bottom_right": [
+      16346,
+      288
+    ]
+  },
+  {
+    "filename": "decalsigndanger001e.webp",
+    "top_left": [
+      15328,
+      2548
+    ],
+    "top_right": [
+      15456,
+      2548
+    ],
+    "bottom_left": [
+      15328,
+      2676
+    ],
+    "bottom_right": [
+      15456,
+      2676
+    ]
+  },
+  {
+    "filename": "defaultmusic.webp",
+    "top_left": [
+      15456,
+      2548
+    ],
+    "top_right": [
+      15584,
+      2548
+    ],
+    "bottom_left": [
+      15456,
+      2676
+    ],
+    "bottom_right": [
+      15584,
+      2676
+    ]
+  },
+  {
+    "filename": "HLTX1940.webp",
+    "top_left": [
+      15584,
+      2548
+    ],
+    "top_right": [
+      15712,
+      2548
+    ],
+    "bottom_left": [
+      15584,
+      2676
+    ],
+    "bottom_right": [
+      15712,
+      2676
+    ]
+  },
+  {
+    "filename": "HLTX1932.webp",
+    "top_left": [
+      16218,
+      288
+    ],
+    "top_right": [
+      16314,
+      288
+    ],
+    "bottom_left": [
+      16218,
+      384
+    ],
+    "bottom_right": [
+      16314,
+      384
+    ]
+  },
+  {
+    "filename": "OPTX0005.webp",
+    "top_left": [
+      15712,
+      2548
+    ],
+    "top_right": [
+      15776,
+      2548
+    ],
+    "bottom_left": [
+      15712,
+      2676
+    ],
+    "bottom_right": [
+      15776,
+      2676
+    ]
+  },
+  {
+    "filename": "HLTX2655.webp",
+    "top_left": [
+      15328,
+      2676
+    ],
+    "top_right": [
+      15424,
+      2676
+    ],
+    "bottom_left": [
+      15328,
+      2724
+    ],
+    "bottom_right": [
+      15424,
+      2724
+    ]
+  },
+  {
+    "filename": "BSTX0034.webp",
+    "top_left": [
+      16314,
+      288
+    ],
+    "top_right": [
+      16378,
+      288
+    ],
+    "bottom_left": [
+      16314,
+      352
+    ],
+    "bottom_right": [
+      16378,
+      352
+    ]
+  },
+  {
+    "filename": "decalmetalhatch002a.webp",
+    "top_left": [
+      15776,
+      2548
+    ],
+    "top_right": [
+      15840,
+      2548
+    ],
+    "bottom_left": [
+      15776,
+      2612
+    ],
+    "bottom_right": [
+      15840,
+      2612
+    ]
+  },
+  {
+    "filename": "HLTX2233.webp",
+    "top_left": [
+      16346,
+      160
+    ],
+    "top_right": [
+      16378,
+      160
+    ],
+    "bottom_left": [
+      16346,
+      288
+    ],
+    "bottom_right": [
+      16378,
+      288
+    ]
+  },
+  {
+    "filename": "teller_vent_01.webp",
+    "top_left": [
+      15840,
+      2548
+    ],
+    "top_right": [
+      15904,
+      2548
+    ],
+    "bottom_left": [
+      15840,
+      2612
+    ],
+    "bottom_right": [
+      15904,
+      2612
+    ]
+  },
+  {
+    "filename": "HLTX0999.webp",
+    "top_left": [
+      15904,
+      2548
+    ],
+    "top_right": [
+      15984,
+      2548
+    ],
+    "bottom_left": [
+      15904,
+      2596
+    ],
+    "bottom_right": [
+      15984,
+      2596
+    ]
+  },
+  {
+    "filename": "HLTX1939.webp",
+    "top_left": [
+      16314,
+      352
+    ],
+    "top_right": [
+      16362,
+      352
+    ],
+    "bottom_left": [
+      16314,
+      384
+    ],
+    "bottom_right": [
+      16362,
+      384
+    ]
+  }
+]
