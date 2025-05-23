@@ -1,13 +1,19 @@
-├── images
-│   ├── chicken.png
-│   ├── images
-│   └── computer-frame.png
-├── sounds
-│   ├── fan.mp3
-├── README.md
-├── backups
-│   └── combined.dom
-├── index.html
-├── script.js
-└── style.css
-
+ ├─ .github
+│  └─ workflows
+│     └─ static.yml
+├─ CNAME
+├─ catci.net
+│  ├─ audio
+│  │  └─ spacer
+│  ├─ scripts
+│  │  ├─ clone.js
+│  │  ├─ flicker-sign.js
+│  │  ├─ main.js
+│  │  └─ status.js
+│  ├─ spacer
+│  ├─ spritesheet_0.txt
+│  └─ spritesheet_0.webp
+├─ dictionary.txt
+├─ favicon.ico
+├─ files.html
+└─ index.html
