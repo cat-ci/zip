@@ -1,19 +1,19 @@
- ├─ .github
-│  └─ workflows
-│     └─ static.yml
-├─ CNAME
-├─ catci.net
-│  ├─ audio
-│  │  └─ spacer
-│  ├─ scripts
-│  │  ├─ clone.js
-│  │  ├─ flicker-sign.js
-│  │  ├─ main.js
-│  │  └─ status.js
-│  ├─ spacer
-│  ├─ spritesheet_0.txt
-│  └─ spritesheet_0.webp
-├─ dictionary.txt
-├─ favicon.ico
-├─ files.html
-└─ index.html
+├── .github
+│   └── workflows
+│       └── static.yml
+├── CNAME
+├── catci.net
+│   ├── audio
+│   │   └── spacer
+│   ├── scripts
+│   │   ├── clone.js
+│   │   ├── flicker-sign.js
+│   │   ├── main.js
+│   │   └── status.js
+│   ├── spacer
+│   ├── spritesheet_0.txt
+│   └── spritesheet_0.webp
+├── dictionary.txt
+├── favicon.ico
+├── files.html
+└── index.html
